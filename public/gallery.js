@@ -73,30 +73,47 @@ function updateLocation() {
     }
 }
 btnBack.addEventListener('click', function () {
-    pageNumber = changePageNumber(pageNumber, '-');
+    pageNumber = previousPage(pageNumber);
     localStorage.setItem('page', pageNumber);
     createGalleryPage(pageNumber);
 });
 btnNext.addEventListener('click', function () {
-    pageNumber = changePageNumber(pageNumber, '+');
+    pageNumber = nextPage(pageNumber);
     localStorage.setItem('page', pageNumber);
     createGalleryPage(pageNumber);
 });
-function changePageNumber(pageNumber, sign) {
-    if (sign === "-") {
-        pageNumber = `${+pageNumber - 1}`;
-        if (+pageNumber < 1) {
-            pageNumber = `${+pageNumber + 5}`;
-        }
-        localStorage.setItem('page', pageNumber);
+// function changePageNumber(pageNumber: string, sign: string): string{
+//     if(sign === "-"){
+//         pageNumber = `${+pageNumber - 1}`;
+//         if(+pageNumber < 1){
+//             pageNumber = `${+pageNumber + 5}`;
+//         }
+//         localStorage.setItem('page', pageNumber);
+//     } else if(sign === '+'){
+//         pageNumber = `${+pageNumber + 1}`;
+//         if(+pageNumber > 5){
+//             pageNumber = `${+pageNumber - 5}`;
+//         }
+//         localStorage.setItem('page', pageNumber);
+//     }
+//     console.log(pageNumber)
+//     return pageNumber;
+// }
+function nextPage(pageNumber) {
+    pageNumber = `${+pageNumber + 1}`;
+    if (+pageNumber > 5) {
+        pageNumber = `${+pageNumber - 5}`;
     }
-    else if (sign === '+') {
-        pageNumber = `${+pageNumber + 1}`;
-        if (+pageNumber > 5) {
-            pageNumber = `${+pageNumber - 5}`;
-        }
-        localStorage.setItem('page', pageNumber);
+    localStorage.setItem('page', pageNumber);
+    console.log(pageNumber);
+    return pageNumber;
+}
+function previousPage(pageNumber) {
+    pageNumber = `${+pageNumber - 1}`;
+    if (+pageNumber < 1) {
+        pageNumber = `${+pageNumber + 5}`;
     }
+    localStorage.setItem('page', pageNumber);
     console.log(pageNumber);
     return pageNumber;
 }

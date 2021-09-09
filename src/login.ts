@@ -25,9 +25,12 @@ class User implements User{
         this.password = password;
     }
 
-    checkPassword(): true | void {
-        if(this.password.match(regex)) return true
-        return alert("Invalid form of password")
+    isCorrectPassword(): boolean {
+        if(this.password.match(regex)) return true;
+        else {
+            alert("Invalid form of password");
+            return false;
+        }
     }
 }
 
@@ -45,7 +48,7 @@ form.addEventListener('submit', async(event) => {
     let {email, password} = getUserData() 
     let user: User = new User(email, password)
 
-    if(!user.checkPassword()) return;
+    if(!user.isCorrectPassword()) return;
 
     try {
         let response: Response = await fetch(url, {
@@ -64,7 +67,7 @@ form.addEventListener('submit', async(event) => {
         if(localStorage.getItem('token')){
             let time = new Date();
             localStorage.setItem('time', String(time.getUTCMinutes()));
-            document.location.replace('./gallery.html');
+            document.location.replace('../public/gallery.html');
         }
 
     } catch(err: any){
