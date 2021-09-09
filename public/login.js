@@ -2,6 +2,7 @@
 const url = 'https://glq7fjiy07.execute-api.us-east-1.amazonaws.com/api/login';
 const form = document.getElementById('login');
 const regex = /^\b([0-9A-Z])+\b$/gi;
+
 class User {
     constructor(email, password) {
         this.email = email;
@@ -13,13 +14,15 @@ class User {
         return alert("Invalid form of password");
     }
 }
+
 function getUserData() {
     let userData = {};
     return userData = {
         email: document.getElementById("userEmail").value,
         password: document.getElementById("userPassword").value,
     };
-}
+};
+
 form.addEventListener('submit', async (event) => {
     event.preventDefault();
     let { email, password } = getUserData();
@@ -41,7 +44,7 @@ form.addEventListener('submit', async (event) => {
         if (localStorage.getItem('token')) {
             let time = new Date();
             localStorage.setItem('time', String(time.getUTCMinutes()));
-            document.location.replace('./gallery.html');
+            document.location.replace('./public/gallery.html');
         }
     }
     catch (err) {

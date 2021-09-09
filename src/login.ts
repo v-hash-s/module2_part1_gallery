@@ -2,6 +2,20 @@ const url: string =  'https://glq7fjiy07.execute-api.us-east-1.amazonaws.com/api
 const form = document.getElementById('login') as HTMLFormElement;
 const regex: RegExp = /^\b([0-9A-Z])+\b$/gi
 
+interface UserData {
+    email: string; 
+    password: string
+}
+
+interface User {
+    email: string;
+    password: string;
+}
+
+interface ErrorMessage {
+    errorMessage: string;
+}
+
 class User implements User{
     email: string;
     password: string;
@@ -15,11 +29,6 @@ class User implements User{
         if(this.password.match(regex)) return true
         return alert("Invalid form of password")
     }
-}
-
-interface UserData {
-    email: string; 
-    password: string
 }
 
 function getUserData(): UserData {
@@ -62,13 +71,3 @@ form.addEventListener('submit', async(event) => {
         alert(err.message);
     }
 })
-
-
-interface User {
-    email: string;
-    password: string;
-}
-
-interface ErrorMessage {
-    errorMessage: string;
-}

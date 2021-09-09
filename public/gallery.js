@@ -64,7 +64,7 @@ function checkTime() {
     if (timeNow.getUTCMinutes() - Number(localStorage.getItem('time')) >= 10) {
         localStorage.removeItem('token');
         localStorage.removeItem('time');
-        document.location.replace('./index.html');
+        document.location.replace('../index.html');
     }
 }
 function updateLocation() {
