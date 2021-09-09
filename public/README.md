@@ -8,13 +8,24 @@
 
 ### Project structure:
 
-* gallery.html
-* gallery.js
-* login.js
-* login.html
-* README.md
+* /src
+  * gallery.ts
+  * login.ts
+* /public
+  * gallery.html
+  * gallery.js
+  * index.html
+  * login.js
+  * README.md
+* tsconfig.json
 
 ### Project structure description: 
+
+#### tsconfig.json
+
+> Configuration for the typescript project
+
+#### **/public**
 
 #### gallery.html
 
@@ -22,7 +33,7 @@
 
 #### gallery.js
 
-> Functionality for fetching photos and creating gallery
+> Compiled with tsc gallery.ts
 
 #### login.html
 
@@ -30,8 +41,18 @@
 
 #### login.js
 
-> Functionality to authenticate user, if his email and/or password correct/valid
+> Compiled with tsc login.ts
 
 #### README.md
 
 > Project description
+
+#### **/src**
+
+#### login.ts
+
+> Functionality to authenticate user, if his email and/or password correct/valid
+
+#### gallery.ts
+
+> Functionality for fetching photos and creating gallery
