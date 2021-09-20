@@ -1,4 +1,5 @@
 const url: string =  'https://glq7fjiy07.execute-api.us-east-1.amazonaws.com/api/login';
+// const url: string =  'http://localhost:8080/api/login';
 const form = document.getElementById('login') as HTMLFormElement;
 const regex: RegExp = /^\b([0-9A-Z])+\b$/gi
 
