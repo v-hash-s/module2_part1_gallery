@@ -1,5 +1,5 @@
 const galleryUrl = new URL('https://glq7fjiy07.execute-api.us-east-1.amazonaws.com/api/gallery'); 
-
+// const galleryUrl = new URL('http://localhost:8080/api/gallery');
 const urlSearchParams = new URLSearchParams(window.location.search);
 const params: searchParams = Object.fromEntries(urlSearchParams.entries());
 
@@ -63,6 +63,7 @@ async function createGalleryPage(pageNumber: string): Promise<void>{
 async function displayPhotos(pageNumber: string){
     try{
         let newUrl = 'https://glq7fjiy07.execute-api.us-east-1.amazonaws.com/api/gallery?page=' + pageNumber;
+        // let newUrl = 'http://localhost:8080/api/gallery?page=' + pageNumber;
         let fetchedPhotos: any[] = await(fetchPhotos(newUrl));
         
         gallery.innerHTML = "";
